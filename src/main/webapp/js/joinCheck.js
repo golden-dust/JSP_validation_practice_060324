@@ -3,7 +3,7 @@
  */
 
 const nullAlert = (obj) => {
-	alert(`모든 칸을 입력해주세요 (${obj.id})`);
+	alert(`모든 칸을 입력해주세요 <${obj.id}>`);
 	obj.focus();
 };
 
@@ -69,15 +69,13 @@ function joinCheck() {
 	var kor = /^[가-힣]*$/;
 	var eng = /^[a-zA-Z]*$/;
 	var number = /^[0-9]*$/;
-	
+
 	if (!kor.test(f.memberName.value)) {
 		alert("이름은 한글만 입력 가능합니다.\n다시 확인해주세요.");
 		return false;
 	}
 	
 	/* 전화번호는 숫자만 입력가능하도록 유효성 검사 */
-	
-	
 	if (!number.test(num.value)) {
 		alert("전화번호는 숫자만 입력가능합니다.\n다시 확인해주세요.");
 		return false;

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>sign up</title>
-<script type="text/javascript" src="js/joinCheck3.js"></script>
+<script type="text/javascript" src="js/joinCheck.js"></script>
 </head>
 <body>
 	<h2>회원 가입</h2>
