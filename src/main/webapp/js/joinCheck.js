@@ -2,13 +2,29 @@
  * 
  */
 
+const nullAlert = (obj) => {
+	alert(`모든 칸을 입력해주세요 (${obj.id})`);
+	obj.focus();
+};
+
+
 function isNull(obj) {
 	if (obj.value == "" || obj.value == null) {
 		console.log("null true");
+		nullAlert(obj);
 		return true;
 	}
 	console.log("null false");
 	return false;
+}
+
+function lengthChecked(obj, min, max) {
+	if (obj.value.length < min || obj.value.length > 15) {
+		alert(`${obj.id} 길이: ${min}~${max}글자 사이로 입력해주세요.`);
+		obj.focus();
+		return false;
+	}
+	return true;
 }
 
 function joinCheck() {
@@ -21,15 +37,31 @@ function joinCheck() {
 	var name = f.memberName;
 	var num = f.phoneNumber;
 	
-	if (isNull(id)) {
-		alert("아이디를 입력하세요");
-		id.focus();
-		return false;	
+	const objList = [id, pw, name, num];
+	
+	for (obj of objList) {
+		if (isNull(obj)) {
+			return false;	
+		}
 	}
+	
+	
+	
 
 	/* 아이디 길이 유효성 검사 */
-	if (id.value.length < 4 || id.value.length > 15) {
-		alert("아이디는 4~15글자여야 합니다.\n다시 확인해 주세요.");
+	if (!lengthChecked(id, 4, 15)) {
+		return false;
+	}
+	
+	if (!lengthChecked(pw, 10, 20)) {
+		return false;
+	}
+	
+	if (!lengthChecked(name, 2, 10)) {
+		return false;
+	}
+	
+	if (!lengthChecked(num, 11, 11)) {
 		return false;
 	}
 
