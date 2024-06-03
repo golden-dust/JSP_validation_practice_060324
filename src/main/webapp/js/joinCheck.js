@@ -44,9 +44,6 @@ function joinCheck() {
 			return false;	
 		}
 	}
-	
-	
-	
 
 	/* 아이디 길이 유효성 검사 */
 	if (!lengthChecked(id, 4, 15)) {
